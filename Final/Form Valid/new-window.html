@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Window</title>
+</head>
+
+<body>
+    <form action="b" name="a">
+        Name: <input type="text" id="name"><br>
+        Contact: <input type="text" id="contact"><br>
+        Remark: <textarea name="" id="remark" cols="30" rows="10"></textarea> <br>
+        Gender: Male <input type="radio" name="s" value="male">|
+        Femal <input type="radio" name="s" value="femal">| <br>
+        Courses: NT <input type="checkbox" name="course" value="nt">|
+        WDPF <input type="checkbox" name="course" value="wdpf">|
+        DDD <input type="checkbox" name="course" value="ddd">|
+        ECAD <input type="checkbox" name="course" value="ecad">| <br>
+        Location:
+        <select name="" id="location">
+            <option value="mirpur">Mirpur</option>
+            <option value="dhamondi">Dhamondi</option>
+            <option value="faridpur">Faridpur</option>
+        </select> <br>
+        <input type="button" value="Submit" onclick="valuecheack()">
+        <!-- <button type="button" value="Submit" onclick="valuecheack()"></button> -->
+    </form>
+    <script>
+		class formValid {
+			constructor(name, contact, remark, gender, course, location) {
+				this.name = name;
+				this.contact = contact;
+				this.remark = remark;
+				this.gender = gender;
+				this.course = course;
+				this.location = location;
+			}
+			formCheck() {
+				let w = window.open("", "", "wedth=100px,hight=100px");
+				w.document.write("User Name :" + this.name + "<br>");
+				w.document.write("Contact :" + this.contact + "<br>");
+				w.document.write("Remark :" + this.remark + "<br>");
+				w.document.write("Gender :" + this.gender + "<br>");
+				w.document.write("Course :" + this.course + "<br>");
+				w.document.write("Location :" + this.location + "<br>");
+			}
+
+		}
+        function valuecheack() {
+            let name = document.getElementById("name").value;
+            let contact = document.getElementById("contact").value;
+            let remark = document.getElementById("remark").value;
+            // let sex = document.a.s.value;
+            let Gender = document.a.s.value;
+            let location = document.getElementById("location").value;
+           
+            let course=[]
+            var courserrBox = document.querySelectorAll('input[name="course"]:checked');
+            for (var checkbox of courserrBox) {
+                course.push(checkbox.value)
+
+            }         
+			let obj=new formValid(name, contact, remark, Gender, course, location);
+			obj.formCheck();
+        }
+    </script>
+</body>
+
+</html>
